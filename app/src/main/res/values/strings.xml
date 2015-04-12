@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Handi\'Transport</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="pannes">Pannes</string>
+    <string name="autourDeMoi">Autour de moi</string>
+    <string name="ajoutPanne">Ajout panne</string>
+    <string name="ajoutLieu">Ajout lieu</string>
+    <string name="rechercher">Rechercher lieu ou station</string>
+    <string name="title_activity_selectionner_ligne">SelectionnerLigne</string>
+    <string name="sectionnerLigne">Sélectionner une ligne</string>
+    <string name="sectionnerLigneText01">Pannes signalées sur les stations: </string>
+    <string name="title_activity_autour_de_moi">Map</string>
+    <string name="title_activity_main_activity2">MainActivity2</string>
+
+</resources>

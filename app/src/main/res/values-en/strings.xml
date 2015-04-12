@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Disa\'Transport</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="pannes">Breakdown</string>
+    <string name="autourDeMoi">Around me</string>
+    <string name="ajoutPanne">Add breakdown</string>
+    <string name="ajoutLieu">Add place</string>
+    <string name="rechercher">Find place or station</string>
+
+    <string name="sectionnerLigne">Select a line</string>
+    <string name="sectionnerLigneText01">Breakdown reported on stations: </string>
+
+
+
+</resources>
