@@ -12,6 +12,7 @@
     <string name="sectionnerLigne">Select a line</string>
     <string name="sectionnerLigneText01">Breakdown reported on stations: </string>
 
-
+    <string name="ajouterUnePanne">Add a breakdown</string>
+    <string name="ajouterUnLieu">Add place</string>
 
 </resources>

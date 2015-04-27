@@ -21,20 +21,20 @@ public class MainActivity extends ActionBarActivity {
         Translater.menu(getResources(), this);
 
         //Passage de l'activité main à l'activité selectionnerLigne
-        final Button selectionner = (Button) findViewById(R.id.autourDeMoi);
-        selectionner.setOnClickListener(new Listenner(MainActivity.this,Pannes.class,this));
+        final Button select = (Button) findViewById(R.id.autourDeMoi);
+        select.setOnClickListener(new Listenner(MainActivity.this,AutourDeMoi.class,this));
 
-        //Passage de l'activité main à l'activité autourDeMoi
-        //final Button selectionner2 = (Button) findViewById(R.id.autourDeMoi);
-        //selectionner.setOnClickListener(new Listenner(MainActivity.this,Pannes.class,this));
+        //Passage de l'activité main à l'activité ajoutPanne
+        final Button select2 = (Button) findViewById(R.id.ajoutPanne);
+        select2.setOnClickListener(new Listenner(MainActivity.this,AjoutPanne.class,this));
+
+        //Passage de l'activité main à l'activité ajoutLieu
+        final Button select3 = (Button) findViewById(R.id.ajoutLieu);
+        select3.setOnClickListener(new Listenner(MainActivity.this,AjoutLieu.class,this));
 
         //Passage de l'activité main à l'activité selectionnerLigne
-        //final Button selectionner = (Button) findViewById(R.id.autourDeMoi);
-        //selectionner.setOnClickListener(new Listenner(MainActivity.this,Pannes.class,this));
-
-        //Passage de l'activité main à l'activité selectionnerLigne
-        //final Button selectionner = (Button) findViewById(R.id.autourDeMoi);
-        //selectionner.setOnClickListener(new Listenner(MainActivity.this,Pannes.class,this));
+        final Button select4 = (Button) findViewById(R.id.pannes);
+        select4.setOnClickListener(new Listenner(MainActivity.this,Pannes.class,this));
 
     }
 

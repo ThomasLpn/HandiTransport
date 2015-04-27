@@ -13,6 +13,11 @@
     <string name="sectionnerLigne">Sélectionner une ligne</string>
     <string name="sectionnerLigneText01">Pannes signalées sur les stations: </string>
     <string name="title_activity_autour_de_moi">Map</string>
-    <string name="title_activity_main_activity2">MainActivity2</string>
+    <string name="title_activity_ajout_panne">AjoutPanne</string>
+    <string name="ajouterUnePanne">Ajouter une panne</string>
+    <string name="title_activity_ajout_lieu">AjoutLieu</string>
+    <string name="ajouterUnLieu">Ajouter un lieu</string>
+    <string name="google_maps_key">AIzaSyAH7Qh_aj1BXv_nhucdqW-Tp-NbxjNfDCg</string>
+    <string name="title_activity_lieu">Lieu</string>
 
 </resources>

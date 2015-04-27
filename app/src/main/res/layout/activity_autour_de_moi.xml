@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="false"
+        android:gravity="bottom"
+        android:weightSum="1">
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+            android:layout_height="492dp" android:id="@+id/map"
+            tools:context="miagesorbonne.Handitransport.AutourDeMoi"
+            android:layout_weight="0.34" />
+    </LinearLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resto"
+        android:id="@+id/boutonResto"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bar"
+        android:id="@+id/boutonBar"
+        android:layout_toStartOf="@id/boutonResto" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WC"
+        android:id="@+id/boutonWC"
+        android:layout_toStartOf="@id/boutonBar" />
+
+
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ciné"
+        android:id="@+id/boutonCine"
+        android:layout_toEndOf="@id/boutonResto" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tabac"
+        android:id="@+id/boutonTabac"
+        android:layout_toEndOf="@id/boutonCine"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
