@@ -47,7 +47,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:text="Ascenseur"
+                android:text="@string/ajouterPanneAscenseur"
                 android:id="@+id/ascenseur"
                 android:checked="true"
                 android:layout_gravity="left"
@@ -56,7 +56,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:text="Escalator"
+                android:text="@string/ajouterPanneEscalator"
                 android:id="@+id/escalator"
                 android:layout_weight="1"
                 android:checked="false" />
@@ -97,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Details"
+            android:text="@string/ajouterPanneDetails"
             android:id="@+id/textView3" />
 
         <EditText
@@ -110,7 +110,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Signaler Panne"
+        android:text="@string/ajouterPanneSignalerPanne"
         android:id="@+id/ajoutPanneBoutonValider"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/titreAjoutPanne"

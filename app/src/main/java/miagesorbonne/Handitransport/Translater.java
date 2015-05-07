@@ -22,11 +22,11 @@ public class Translater {
         bolton = (Button)act.findViewById(R.id.ajoutPanne);
         bolton.setText(res.getString(R.string.ajoutPanne));
 
-        bolton = (Button)act.findViewById(R.id.ajoutLieu);;
+        bolton = (Button)act.findViewById(R.id.ajoutLieu);
         bolton.setText(res.getString(R.string.ajoutLieu));
 
         EditText et = (EditText) act.findViewById(R.id.rechercher);
-        et.setHint(R.string.rechercher);
+        et.setText(R.string.rechercher);
 
 
     }

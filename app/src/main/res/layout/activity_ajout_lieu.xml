@@ -25,7 +25,7 @@
         android:layout_below="@+id/listeCategorie"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Lieu" />
+        android:text="@string/ajouterLieuLieu" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
         android:layout_below="@+id/nomLieu"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Adresse" />
+        android:text="@string/ajouterLieuAdresse" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
         android:layout_below="@+id/adresseLieu"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Code Postale" />
+        android:text="@string/ajouterLieuCodePostale" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
         android:layout_below="@+id/cpLieu"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Ville" />
+        android:text="@string/ajouterLieuVille" />
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -66,24 +66,24 @@
         android:numStars="5" />
 
     <EditText
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/commentaireLieu"
         android:layout_below="@+id/noteLieu"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentStart="false"
         android:layout_alignRight="@+id/listeCategorie"
-        android:layout_alignEnd="@+id/listeCategorie"
-        android:text="Commentaire"
+        android:text="@string/ajouterLieuCommentaire"
         android:layout_above="@+id/validerAjoutLieu"
-        android:gravity="top" />
+        android:gravity="top"
+        android:layout_alignParentEnd="false" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Valider"
+        android:text="@string/ajouterLieuValider"
         android:id="@+id/validerAjoutLieu"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/commentaireLieu"

@@ -17,8 +17,7 @@
             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
             android:layout_height="492dp" android:id="@+id/map"
             tools:context="miagesorbonne.Handitransport.AutourDeMoi"
-            android:layout_weight="0.34"
-            android:name="com.google.android.gms.maps.SupportMapFragment" />
+            android:layout_weight="0.34" />
     </LinearLayout>
 
     <Button

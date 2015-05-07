@@ -8,11 +8,34 @@
     <string name="ajoutPanne">Add breakdown</string>
     <string name="ajoutLieu">Add place</string>
     <string name="rechercher">Find place or station</string>
-
+    <string name="title_activity_selectionner_ligne">Select Line</string>
     <string name="sectionnerLigne">Select a line</string>
     <string name="sectionnerLigneText01">Breakdown reported on stations: </string>
-
+    <string name="title_activity_ajout_lieu">Add place</string>
     <string name="ajouterUnePanne">Add a breakdown</string>
     <string name="ajouterUnLieu">Add place</string>
+    <string name="title_activity_ajout_panne">Add breakdown</string>
+    <string name="title_activity_lieu">Place</string>
+
+    //Ajout Lieu
+    <string name="ajouterLieuLieu">Place</string>
+    <string name="ajouterLieuAdresse">Adress</string>
+    <string name="ajouterLieuCodePostale">ZIP Code</string>
+    <string name="ajouterLieuVille">Town</string>
+    <string name="ajouterLieuCommentaire">Comment</string>
+    <string name="ajouterLieuValider">Validate</string>
+
+    //Ajout Panne
+    <string name="ajouterPanneAscenseur">Elevator</string>
+    <string name="ajouterPanneDetails">Details</string>
+    <string name="ajouterPanneSignalerPanne">Report a breakdown</string>
+
+    //Lieu
+    <string name="lieuNomLieu">Place\'s Name</string> //pas forcément utile proviendra de la base de données
+    <string name="lieuAdresse">Adress</string>
+    <string name="lieuCPetVille">ZIP Code and town</string>
+    <string name="lieuAccessibilité">accessibility</string>
+    <string name="lieuAvis">Opinion</string>
+    <string name="lieuLaisserAvis">Leave an opinion</string>
 
 </resources>
