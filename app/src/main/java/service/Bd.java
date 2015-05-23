@@ -1,4 +1,4 @@
-package bd;
+package service;
 
 /**
  * Created by user on 05/05/2015.
