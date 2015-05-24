@@ -37,7 +37,7 @@ public class ManagerPanne {
             @Override
             public void onClick(View v) {
                 //liste de paramètre post que nous allons envoyer
-                List<NameValuePair> listPost = new ArrayList<NameValuePair>(7);
+                List<NameValuePair> listPost = new ArrayList<>(7);
 
 
 
@@ -45,18 +45,18 @@ public class ManagerPanne {
                 //On récupère les infos rentrées par l'utilisateur
 
                 TextView detail = (TextView)activite.findViewById(R.id.detailsPannes);
-                listPost.add(new BasicNameValuePair("1","station"));
-                listPost.add(new BasicNameValuePair("1","escalator"));
-                listPost.add(new BasicNameValuePair("0","ascenseur"));
-                listPost.add(new BasicNameValuePair(new SimpleDateFormat("yyyyMMdd").format(new Date()),"date"));
-                listPost.add(new BasicNameValuePair((String)detail.getText(),"detail"));
+                listPost.add(new BasicNameValuePair("station","1"));
+                listPost.add(new BasicNameValuePair("escalator","1"));
+                listPost.add(new BasicNameValuePair("ascenseur","0"));
+                listPost.add(new BasicNameValuePair("date",new SimpleDateFormat("yyyyMMdd").format(new Date())));
+                listPost.add(new BasicNameValuePair("detail",detail.getText().toString()));
 
                 detail.setText("");
 
                 //On lie la liste des paramètre à l'instance HttpPost
-                HttpPost httpost = new HttpPost("localhost/handitransport/webservices/ajouterpanne.php");
+                HttpPost httpost = new HttpPost("http://10.0.2.2/handitransport/webservices/ajouterpanne.php");
                 try {
-                    httpost.setEntity(new UrlEncodedFormEntity(listPost));
+                    httpost.setEntity(new UrlEncodedFormEntity(listPost, "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
@@ -64,6 +64,7 @@ public class ManagerPanne {
                 //On envoie la requête et on récupère la réponse
                 HttpClient httpclient = new DefaultHttpClient();
                 try {
+
                     HttpResponse response = httpclient.execute(httpost);
                 } catch (IOException e) {
                     e.printStackTrace();
