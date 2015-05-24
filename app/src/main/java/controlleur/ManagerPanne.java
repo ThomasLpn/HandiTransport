@@ -8,6 +8,8 @@ import propriete.Propriete;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -48,11 +50,27 @@ public class ManagerPanne {
 
                 //On récupère les infos rentrées par l'utilisateur
 
-                TextView detail = (TextView)activite.findViewById(R.id.detailsPannes);
+
                 listPost.add(new BasicNameValuePair("station","1"));
-                listPost.add(new BasicNameValuePair("escalator","1"));
-                listPost.add(new BasicNameValuePair("ascenseur","0"));
+
+                RadioButton ascensseur = (RadioButton) activite.findViewById(R.id.ascenseur);
+                RadioGroup rg = (RadioGroup) activite.findViewById(R.id.choixTypePanne);
+                int selectionne = rg.getCheckedRadioButtonId();
+                String as="0";
+                String es="0";
+                if(selectionne == ascensseur.getId()){
+                    as="1";
+                }else{
+                    es="1";
+                }
+                listPost.add(new BasicNameValuePair("ascenseur",as));
+                listPost.add(new BasicNameValuePair("escalator",es));
+
+
+
+
                 listPost.add(new BasicNameValuePair("date",new SimpleDateFormat("yyyyMMdd").format(new Date())));
+                TextView detail = (TextView)activite.findViewById(R.id.detailsPannes);
                 listPost.add(new BasicNameValuePair("detail",detail.getText().toString()));
 
                 detail.setText("");
@@ -71,13 +89,7 @@ public class ManagerPanne {
 
                     HttpResponse response = httpclient.execute(httpost);
                     BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-                    if (reader.readLine().equals("true")){
-                        popup.creationPopup(activite,"Résultat requête","Incident signalé");
-                    }else{
-                        popup.creationPopup(activite,"Résultat requête","Echec de l envoie dincident");
-                    }
-
-
+                    popup.creationPopup(activite,"Résultat requête","Incident signalé");
 
                 } catch (IOException e) {
                     e.printStackTrace();

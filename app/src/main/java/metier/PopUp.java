@@ -20,7 +20,6 @@ public class PopUp {
                         // continue with delete
                     }
                 })
-                .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
 
     }

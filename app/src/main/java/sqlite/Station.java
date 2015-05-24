@@ -9,6 +9,10 @@ public class Station {
     private String nomStation;
     private String idLigne;
 
+    public Station(){
+
+    }
+
     public Station(int idStation, String nomStation, String idLigne){
         this.idStation = idStation;
         this.nomStation = nomStation;

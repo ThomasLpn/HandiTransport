@@ -19,7 +19,7 @@
 
     //Ajout Lieu
     <string name="ajouterLieuLieu">Place</string>
-    <string name="ajouterLieuAdresse">Adress</string>
+    <string name="ajouterLieuAdresse">Address</string>
     <string name="ajouterLieuCodePostale">ZIP Code</string>
     <string name="ajouterLieuVille">Town</string>
     <string name="ajouterLieuCommentaire">Comment</string>
@@ -32,7 +32,7 @@
 
     //Lieu
     <string name="lieuNomLieu">Place\'s Name</string> //pas forcément utile proviendra de la base de données
-    <string name="lieuAdresse">Adress</string>
+    <string name="lieuAdresse">Address</string>
     <string name="lieuCPetVille">ZIP Code and town</string>
     <string name="lieuAccessibilité">accessibility</string>
     <string name="lieuAvis">Opinion</string>

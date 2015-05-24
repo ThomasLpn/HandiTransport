@@ -16,14 +16,11 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Pour le multithreading
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-
-
-        //Traduction du menu soit en anglais soit en français
-        Translater.menu(getResources(), this);
 
         //Passage de l'activité main à l'activité selectionnerLigne
         final Button select = (Button) findViewById(R.id.autourDeMoi);

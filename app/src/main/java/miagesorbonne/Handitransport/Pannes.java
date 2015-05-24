@@ -12,7 +12,6 @@ public class Pannes extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selectionner_ligne);
-        Translater.autourDeMoi(getResources(), this);
     }
 
 

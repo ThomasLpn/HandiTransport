@@ -21,7 +21,7 @@
             android:id="@+id/rechercher"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Rechercher lieu ou station"
+            android:hint="@string/rechercher"
             android:inputType="text"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
@@ -42,7 +42,7 @@
             android:id="@+id/autourDeMoi"
             android:layout_width="wrap_content"
             android:layout_height="93dp"
-            android:text="Autour de moi"
+            android:text="@string/autourDeMoi"
         />
 
 
@@ -50,14 +50,14 @@
             android:id="@+id/pannes"
             android:layout_width="wrap_content"
             android:layout_height="93dp"
-            android:text="Pannes"
+            android:text="@string/pannes"
         />
 
         <Button
             android:id="@+id/ajoutLieu"
             android:layout_width="wrap_content"
             android:layout_height="93dp"
-            android:text="Ajout Lieu"
+            android:text="@string/ajoutLieu"
          />
 
 
@@ -65,7 +65,7 @@
             android:id="@+id/ajoutPanne"
             android:layout_width="wrap_content"
             android:layout_height="93dp"
-            android:text="Ajout Panne"
+            android:text="@string/ajoutPanne"
         />
 
 
