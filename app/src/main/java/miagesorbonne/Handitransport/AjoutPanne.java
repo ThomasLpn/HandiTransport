@@ -11,11 +11,12 @@ import controlleur.ManagerPanne;
 
 public class AjoutPanne extends ActionBarActivity {
 
-    private ManagerPanne manager = new ManagerPanne(this);
+    private ManagerPanne manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        manager = new ManagerPanne(this);
         setContentView(R.layout.activity_ajout_panne);
         Button validation = (Button) findViewById(R.id.ajoutPanneBoutonValider);
         manager.validationPanne(validation);
