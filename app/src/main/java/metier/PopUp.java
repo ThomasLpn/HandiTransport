@@ -10,7 +10,7 @@ import android.content.DialogInterface;
 public class PopUp {
 
 
-    public void crationPopup(Activity activite, String titre, String contenu){
+    public void creationPopup(Activity activite, String titre, String contenu){
 
         new AlertDialog.Builder(activite)
                 .setTitle(titre)
@@ -18,11 +18,6 @@ public class PopUp {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
                     }
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)

@@ -36,6 +36,7 @@ public class ManagerPanne {
 
     public ManagerPanne(Activity activite) {
         this.activite=activite;
+        this.popup = new PopUp();
     }
 
     public void validationPanne(Button boutonValider){
@@ -70,7 +71,13 @@ public class ManagerPanne {
 
                     HttpResponse response = httpclient.execute(httpost);
                     BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-                    popup.crationPopup(activite,"Résultat requête",reader.readLine());
+                    if (reader.readLine().equals("true")){
+                        popup.creationPopup(activite,"Résultat requête","Incident signalé");
+                    }else{
+                        popup.creationPopup(activite,"Résultat requête","Echec de l envoie dincident");
+                    }
+
+
 
                 } catch (IOException e) {
                     e.printStackTrace();
