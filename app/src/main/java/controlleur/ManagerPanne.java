@@ -1,11 +1,14 @@
 package controlleur;
 
 import android.app.Activity;
+
+import metier.PopUp;
 import miagesorbonne.Handitransport.R;
+import propriete.Propriete;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -14,7 +17,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,6 +31,7 @@ import java.util.List;
  */
 public class ManagerPanne {
     private Activity activite;
+    private PopUp popup;
 
 
     public ManagerPanne(Activity activite) {
@@ -39,9 +45,6 @@ public class ManagerPanne {
                 //liste de paramètre post que nous allons envoyer
                 List<NameValuePair> listPost = new ArrayList<>(7);
 
-
-
-
                 //On récupère les infos rentrées par l'utilisateur
 
                 TextView detail = (TextView)activite.findViewById(R.id.detailsPannes);
@@ -54,7 +57,7 @@ public class ManagerPanne {
                 detail.setText("");
 
                 //On lie la liste des paramètre à l'instance HttpPost
-                HttpPost httpost = new HttpPost("http://10.0.2.2/handitransport/webservices/ajouterpanne.php");
+                HttpPost httpost = new HttpPost(Propriete.getAdresseService()+"ajouterpanne.php");
                 try {
                     httpost.setEntity(new UrlEncodedFormEntity(listPost, "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
@@ -66,6 +69,9 @@ public class ManagerPanne {
                 try {
 
                     HttpResponse response = httpclient.execute(httpost);
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                    popup.crationPopup(activite,"Résultat requête",reader.readLine());
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
