@@ -4,7 +4,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import controlleur.ManagerPanne;
 
@@ -12,6 +17,7 @@ import controlleur.ManagerPanne;
 public class AjoutPanne extends ActionBarActivity {
 
     private ManagerPanne manager;
+    private static final String[] STATIONS = new String[]{"Gare de Lyon", "Nationale", "Odéon", "Gare Montparnasse"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +26,10 @@ public class AjoutPanne extends ActionBarActivity {
         setContentView(R.layout.activity_ajout_panne);
         Button validation = (Button) findViewById(R.id.ajoutPanneBoutonValider);
         manager.validationPanne(validation);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,STATIONS);
+        AutoCompleteTextView text = (AutoCompleteTextView) findViewById(R.id.rechercheStation);
+        text.setAdapter(adapter);
     }
 
 

@@ -20,9 +20,10 @@
         android:layout_marginTop="40dp"
         android:id="@+id/linearLayoutAjouterPanne1">
 
-        <SearchView
-            android:layout_width="wrap_content"
+        <AutoCompleteTextView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/ajouterPanneRechercherStation"
             android:id="@+id/rechercheStation" />
     </LinearLayout>
 
