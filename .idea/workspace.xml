@@ -87,7 +87,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_ajout_panne.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="activity_ajout_panne.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_ajout_panne.xml">
           <provider selected="true" editor-type-id="android-designer">
             <state />
@@ -110,14 +110,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AjoutPanne.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AjoutPanne.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/miagesorbonne/Handitransport/AjoutPanne.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="884">
-              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-              <folding>
-                <element signature="e#1005#1013#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.87931037" vertical-offset="51" max-vertical-offset="1003">
+              <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -125,8 +123,8 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values-en/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.92" vertical-offset="204" max-vertical-offset="799">
-              <caret line="31" column="47" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="47" />
+            <state vertical-scroll-proportion="-15.16" vertical-offset="148" max-vertical-offset="799">
+              <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -1331,10 +1329,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/controlleur/ManagerPanne.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/miagesorbonne/Handitransport/Pannes.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/miagesorbonne/Handitransport/AjoutPanne.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_ajout_panne.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/miagesorbonne/Handitransport/AjoutPanne.java" />
       </list>
     </option>
   </component>
@@ -2186,7 +2184,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22207792" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30113637" sideWeight="0.45714286" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30113637" sideWeight="0.45714286" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3013889" sideWeight="0.54241645" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -2575,17 +2573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_selectionner_ligne.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="694" max-vertical-offset="1343">
-          <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -2594,24 +2581,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="706" max-vertical-offset="1377">
           <caret line="67" column="44" selection-start-line="67" selection-start-column="44" selection-end-line="67" selection-end-column="44" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/controlleur/ManagerPanne.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="1309">
-          <caret line="60" column="53" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/miagesorbonne/Handitransport/AjoutPanne.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="884">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding>
-            <element signature="e#1005#1013#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2625,8 +2594,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values-en/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.92" vertical-offset="204" max-vertical-offset="799">
-          <caret line="31" column="47" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="47" />
+        <state vertical-scroll-proportion="-15.16" vertical-offset="148" max-vertical-offset="799">
+          <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/controlleur/ManagerPanne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="1309">
+          <caret line="60" column="53" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -2649,6 +2626,25 @@
             <element signature="e#4089#4118#0" expanded="true" />
             <element signature="e#4469#4504#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_selectionner_ligne.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="694" max-vertical-offset="1343">
+          <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/miagesorbonne/Handitransport/AjoutPanne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.87931037" vertical-offset="51" max-vertical-offset="1003">
+          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

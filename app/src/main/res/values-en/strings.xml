@@ -29,6 +29,7 @@
     <string name="ajouterPanneAscenseur">Elevator</string>
     <string name="ajouterPanneDetails">Details</string>
     <string name="ajouterPanneSignalerPanne">Report Breakdown</string>
+    <string name="ajouterPanneRechercherStation">Find a station</string>
 
     //Lieu
     <string name="lieuNomLieu">Place\'s Name</string> //pas forcément utile proviendra de la base de données

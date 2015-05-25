@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import controlleur.ManagerPanne;
@@ -18,6 +19,7 @@ public class AjoutPanne extends ActionBarActivity {
 
     private ManagerPanne manager;
     private static final String[] STATIONS = new String[]{"Gare de Lyon", "Nationale", "Odéon", "Gare Montparnasse"};
+    private static final String[] ESCASC = new String[]{"Ascensseur 1","Ascensseur 2","Ascensseur 3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +29,15 @@ public class AjoutPanne extends ActionBarActivity {
         Button validation = (Button) findViewById(R.id.ajoutPanneBoutonValider);
         manager.validationPanne(validation);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,STATIONS);
+        ArrayAdapter<String> adapterStation = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line,STATIONS);
         AutoCompleteTextView text = (AutoCompleteTextView) findViewById(R.id.rechercheStation);
-        text.setAdapter(adapter);
+        text.setAdapter(adapterStation);
+
+
+        ArrayAdapter<String> adapterEscasc = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,ESCASC);
+        adapterEscasc.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        Spinner spinner = (Spinner) findViewById(R.id.listeAscenseurEscalator);
+        spinner.setAdapter(adapterEscasc);
     }
 
 

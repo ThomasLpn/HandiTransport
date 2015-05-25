@@ -33,6 +33,7 @@
     <string name="ajouterPanneEscalator">Escalator</string>
     <string name="ajouterPanneDetails">Détails</string>
     <string name="ajouterPanneSignalerPanne">Signaler Panne</string>
+    <string name="ajouterPanneRechercherStation">Rechercher une station</string>
 
     //Lieu
     <string name="lieuNomLieu">Nom Lieu</string> //pas forcément utile proviendra de la base de données
