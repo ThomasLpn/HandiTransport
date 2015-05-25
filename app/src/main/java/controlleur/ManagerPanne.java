@@ -4,28 +4,22 @@ import android.app.Activity;
 
 import metier.PopUp;
 import miagesorbonne.Handitransport.R;
-import propriete.Propriete;
+import service.AjoutPanneBd;
+import service.SelectAllStationBD;
+import service.SelectEscalatorStationBD;
 
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
-import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,11 +28,41 @@ import java.util.List;
 public class ManagerPanne {
     private Activity activite;
     private PopUp popup;
-
+    private AjoutPanneBd serviceAjoutPanne;
+    private SelectAllStationBD serivceSelectAllStation;
+    private SelectEscalatorStationBD serviceSelectEscalator;
 
     public ManagerPanne(Activity activite) {
         this.activite=activite;
         this.popup = new PopUp();
+        serviceAjoutPanne=new AjoutPanneBd();
+        serivceSelectAllStation=new SelectAllStationBD();
+        serviceSelectEscalator=new SelectEscalatorStationBD();
+    }
+
+    public void initilisationRechercheStation(){
+        String [] STATIONS = serivceSelectAllStation.selectAllStation();
+        ArrayAdapter<String> adapterStation = new ArrayAdapter<>(activite, android.R.layout.simple_dropdown_item_1line,STATIONS);
+        AutoCompleteTextView text = (AutoCompleteTextView) activite.findViewById(R.id.rechercheStation);
+        text.setAdapter(adapterStation);
+        text.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                AutoCompleteTextView text = (AutoCompleteTextView) activite.findViewById(R.id.rechercheStation);
+                initialisationEscaAs(text.getText().toString());
+            }
+        });
+    }
+
+    public void initialisationEscaAs(String station){
+        List<NameValuePair> listPost = new ArrayList<>(1);
+        listPost.add(new BasicNameValuePair("nomLigne",station));
+        String[] ESCASC = serviceSelectEscalator.selectAscenseurStation(listPost);
+        popup.creationPopup(activite,"Résultat requête",ESCASC[0]+" "+ESCASC.length);
+        ArrayAdapter<String> adapterEscasc = new ArrayAdapter<>(activite,android.R.layout.simple_spinner_item,ESCASC);
+        adapterEscasc.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        Spinner spinner = (Spinner) activite.findViewById(R.id.listeAscenseurEscalator);
+        spinner.setAdapter(adapterEscasc);
     }
 
     public void validationPanne(Button boutonValider){
@@ -49,8 +73,6 @@ public class ManagerPanne {
                 List<NameValuePair> listPost = new ArrayList<>(7);
 
                 //On récupère les infos rentrées par l'utilisateur
-
-
                 listPost.add(new BasicNameValuePair("station","1"));
 
                 RadioButton ascensseur = (RadioButton) activite.findViewById(R.id.ascenseur);
@@ -65,34 +87,13 @@ public class ManagerPanne {
                 }
                 listPost.add(new BasicNameValuePair("ascenseur",as));
                 listPost.add(new BasicNameValuePair("escalator",es));
-
-
-
-
-                listPost.add(new BasicNameValuePair("date",new SimpleDateFormat("yyyyMMdd").format(new Date())));
                 TextView detail = (TextView)activite.findViewById(R.id.detailsPannes);
                 listPost.add(new BasicNameValuePair("detail",detail.getText().toString()));
 
                 detail.setText("");
 
-                //On lie la liste des paramètre à l'instance HttpPost
-                HttpPost httpost = new HttpPost(Propriete.getAdresseService()+"ajouterpanne.php");
-                try {
-                    httpost.setEntity(new UrlEncodedFormEntity(listPost, "UTF-8"));
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-
-                //On envoie la requête et on récupère la réponse
-                HttpClient httpclient = new DefaultHttpClient();
-                try {
-
-                    HttpResponse response = httpclient.execute(httpost);
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                if (serviceAjoutPanne.ajouterPanne(listPost)){
                     popup.creationPopup(activite,"Résultat requête","Incident signalé");
-
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
             }
         });
