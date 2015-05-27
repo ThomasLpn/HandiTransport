@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class SelectEscalatorStationBD {
 
-    public String[] selectAscenseurStation(List<NameValuePair> paramPost){
+    public String[] selectEscalatorStation(List<NameValuePair> paramPost){
         String[] res=null;
         HttpResponse resRequete = Bd.demandeService("selectescalatorstation.php",paramPost);
 

@@ -27,6 +27,7 @@ public class AjoutPanne extends ActionBarActivity {
         Button validation = (Button) findViewById(R.id.ajoutPanneBoutonValider);
         manager.validationPanne(validation);
         manager.initilisationRechercheStation();
+        manager.modificationGroupeRadioBouton();
     }
 
 

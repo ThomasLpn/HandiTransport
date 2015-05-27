@@ -20,10 +20,9 @@ public class SelectAscenseurStationBD {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(resRequete.getEntity().getContent()));
             String tmp = reader.readLine();
-            //tmp = tmp.substring(1,tmp.length()-2);
-            //tmp = tmp.replace("\"","");
-            //res = tmp.split(":");
-            res[0]=tmp;
+            tmp = tmp.substring(1,tmp.length()-2);
+            tmp = tmp.replace("\"","");
+            res = tmp.split(":");
         } catch (IOException e) {
             e.printStackTrace();
         }
