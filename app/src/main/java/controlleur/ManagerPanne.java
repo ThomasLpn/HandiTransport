@@ -1,140 +1,159 @@
 package controlleur;
 
 import android.app.Activity;
-
-import metier.PopUp;
-import miagesorbonne.Handitransport.R;
-import service.AjoutPanneBd;
-import service.SelectAllStationBD;
-import service.SelectAscenseurStationBD;
-import service.SelectEscalatorStationBD;
-
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import metier.PopUp;
+import miagesorbonne.Handitransport.PanneDetails;
+import miagesorbonne.Handitransport.R;
+import service.SelectAllTypeTransportBD;
+import service.SelectLigneTypeBD;
+import service.SelectPannesLigneBD;
+
 /**
- * Created by user on 23/05/2015.
+ * classe qui permet de gérer les événements sur l'activité Pannne
+ * Created by user on 31/05/2015.
  */
 public class ManagerPanne {
-    private Activity activite;
-    private PopUp popup;
-    private AjoutPanneBd serviceAjoutPanne;
-    private SelectAllStationBD serivceSelectAllStation;
-    private SelectEscalatorStationBD serviceSelectEscalator;
-    private SelectAscenseurStationBD serviceSelectAscenseur;
+    Activity activite;
+    String [] typeTransport;
+    String [] nomLigne;
+    String [] listePannes;
+    List<Button> listeBoutonType;
+    List<Button> listeBoutonLigne;
+    PopUp popUp;
+    SelectLigneTypeBD selectLigneTypeBD;
+    SelectPannesLigneBD selectPannesLigneBD;
+    ArrayAdapter<String> adapter;
 
-    public ManagerPanne(Activity activite) {
-        this.activite=activite;
-        this.popup = new PopUp();
-        serviceAjoutPanne=new AjoutPanneBd();
-        serivceSelectAllStation=new SelectAllStationBD();
-        serviceSelectEscalator=new SelectEscalatorStationBD();
-        serviceSelectAscenseur=new SelectAscenseurStationBD();
+    /**
+     * Constructeur de ManagerPanne
+     * @param activite Activité qui correspond à l'activité Pannes
+     */
+    public ManagerPanne(Activity activite){
+        this.activite = activite;
+        listeBoutonType = new ArrayList<>();
+        listeBoutonLigne = new ArrayList<>();
+        popUp = new PopUp();
+        selectLigneTypeBD = new SelectLigneTypeBD();
+        selectPannesLigneBD = new SelectPannesLigneBD();
     }
 
     /**
-     * Méthode qui permet de proposer une liste déroulante pour la sélection de la station
-     * Lorque l'on sélectionne la station on met à jout la liste des escalaltor/ ascensseur
+     * Mathode qui va permettre de créer dynamiquement un bouton par type de transport
      */
-    public void initilisationRechercheStation(){
-        String [] STATIONS = serivceSelectAllStation.selectAllStation();
-        ArrayAdapter<String> adapterStation = new ArrayAdapter<>(activite, android.R.layout.simple_dropdown_item_1line,STATIONS);
-        AutoCompleteTextView text = (AutoCompleteTextView) activite.findViewById(R.id.rechercheStation);
-        text.setAdapter(adapterStation);
-        text.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                AutoCompleteTextView text = (AutoCompleteTextView) activite.findViewById(R.id.rechercheStation);
-                initialisationEscaAs(text.getText().toString());
-            }
-        });
-    }
+    public void initialiserBoutonRecherche(){
+        LinearLayout linearLayout = (LinearLayout) activite.findViewById(R.id.typeTransport2);
+        SelectAllTypeTransportBD selectAllTypeTransportBD = new SelectAllTypeTransportBD();
+        typeTransport = selectAllTypeTransportBD.selectAllTypeTransport();
 
-    /**
-     * Méthode pour mettre à jour la liste des ascensseurs et des escalators selon la station
-     * @param station
-     */
-    public void initialisationEscaAs(String station){
-        List<NameValuePair> listPost = new ArrayList<>(1);
-        RadioGroup radioGroup = (RadioGroup) activite.findViewById(R.id.choixTypePanne);
-        listPost.add(new BasicNameValuePair("nomLigne",station));
+        listeBoutonType.add(new Button(activite));
+        linearLayout.addView(listeBoutonType.get(0));
+        listeBoutonType.get(0).setText(typeTransport[0]);
+        initialiserListenerTypeTransport(0);
 
-        String[] ESCASC;
-
-        if (activite.findViewById(R.id.ascenseur).getId()==radioGroup.getCheckedRadioButtonId()){
-            ESCASC = serviceSelectEscalator.selectEscalatorStation(listPost);
-        } else {
-            ESCASC = serviceSelectAscenseur.selectAscenseurStation(listPost);
+        for (int i=1; i<typeTransport.length;i++){
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            params.addRule(RelativeLayout.END_OF,listeBoutonType.get(i-1).getId());
+            listeBoutonType.add(new Button(activite));
+            listeBoutonType.get(i).setText(typeTransport[i]);
+            listeBoutonType.get(i).setLayoutParams(params);
+            linearLayout.addView(listeBoutonType.get(i));
+            initialiserListenerTypeTransport(i);
         }
 
-        ArrayAdapter<String> adapterEscasc = new ArrayAdapter<>(activite,android.R.layout.simple_spinner_item,ESCASC);
-        adapterEscasc.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        Spinner spinner = (Spinner) activite.findViewById(R.id.listeAscenseurEscalator);
-        spinner.setAdapter(adapterEscasc);
     }
 
     /**
-     * Méthode qui permet de créer un listener sur nos radios boutons.
-     * A chaque modification de nos radios bouton la liste des ascenseurs / escalator est mise à jour
+     * Méthode qui permet de créer un listenner sur tout les boutons de type de transport. L'action ce déclange lors d'un clic
+     * @param i le paramètre que l'on passe correspond à l'indice du bouton dans le tableau de bouton
      */
-    public void modificationGroupeRadioBouton(){
-        RadioGroup radioGroup = (RadioGroup) activite.findViewById(R.id.choixTypePanne);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                AutoCompleteTextView text = (AutoCompleteTextView) activite.findViewById(R.id.rechercheStation);
-                initialisationEscaAs(text.getText().toString());
-            }
-        });
-    }
-
-    /**
-     * Méthode qui va récupérer toutes les informations de l'écran et envoyer une requêtes POST avec ces infos pour insérer une panne dans notre BD
-     * @param boutonValider
-     */
-    public void validationPanne(Button boutonValider){
-        boutonValider.setOnClickListener(new View.OnClickListener() {
+    private void initialiserListenerTypeTransport(final int i){
+        listeBoutonType.get(i).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //liste de paramètre post que nous allons envoyer
-                List<NameValuePair> listPost = new ArrayList<>(7);
-
-                //On récupère les infos rentrées par l'utilisateur
-                AutoCompleteTextView text = (AutoCompleteTextView) activite.findViewById(R.id.rechercheStation);
-                listPost.add(new BasicNameValuePair("station",text.getText().toString()));
-
-                RadioButton ascensseur = (RadioButton) activite.findViewById(R.id.ascenseur);
-                RadioGroup rg = (RadioGroup) activite.findViewById(R.id.choixTypePanne);
-                int selectionne = rg.getCheckedRadioButtonId();
-                String as="0";
-                String es="0";
-                if(selectionne == ascensseur.getId()){
-                    as="1";
-                }else{
-                    es="1";
-                }
-                listPost.add(new BasicNameValuePair("ascenseur",as));
-                listPost.add(new BasicNameValuePair("escalator",es));
-                TextView detail = (TextView)activite.findViewById(R.id.detailsPannes);
-                listPost.add(new BasicNameValuePair("detail",detail.getText().toString()));
-
-                detail.setText("");
-
-                if (serviceAjoutPanne.ajouterPanne(listPost)){
-                    popup.creationPopup(activite,"Résultat requête","Incident signalé");
-                }
+                intitialiserBoutonLigne((String) listeBoutonType.get(i).getText());
             }
         });
+    }
+
+    /**
+     * Méthode qui permet de mettre un listenner sur les boutons qui correspondent au ligne (M1, RER A,...)
+     * L'action se déclange lors d'un clic sur le bouton.
+     * @param i le rpamètre que l'on passe correspond à l'indice du bouton ligne dans le tableau de bouton de ligne
+     */
+    private void initialiserListenerLigne(final int i) {
+        listeBoutonLigne.get(i).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ListView listView = (ListView) activite.findViewById(R.id.listPannes);
+                List<NameValuePair> listePost = new ArrayList<>();
+                listePost.add(new BasicNameValuePair("idLigne",(String) listeBoutonLigne.get(i).getText()));
+                listePannes=selectPannesLigneBD.selectPannesLigne(listePost);
+                adapter = new ArrayAdapter<String>(activite,android.R.layout.simple_list_item_1, android.R.id.text1,listePannes);
+                listView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
+        });
+        initialiserListenerPanne();
+    }
+
+    /**
+     * Cette activite permet de créer un listenner sur les éléments de la liste des pannes
+     * Cette activité va lancer une nouvelle activité qui va afficher les détails de la panne
+     */
+    private void initialiserListenerPanne(){
+        final ListView listView = (ListView) activite.findViewById(R.id.listPannes);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String[] tabInfosPanne = listView.getItemAtPosition(position).toString().split("   ");
+                Intent intent = new Intent(activite, PanneDetails.class);
+                intent.putExtra("Station",tabInfosPanne[0]);
+                intent.putExtra("Panne", tabInfosPanne[1]);
+                activite.startActivity(intent);
+            }
+        });
+    }
+
+
+    /**
+     * Méthode qui permet d'ajouter dynamiquement des boutons pour chaque ligne qui correpsond au type de ligne sélectionné
+     * @param type les ligne doivent correspondre à ce type de transport
+     */
+    private void intitialiserBoutonLigne(String type){
+        LinearLayout linearLayout = (LinearLayout) activite.findViewById(R.id.numeroLigne2);
+        linearLayout.removeAllViewsInLayout();
+        List<NameValuePair> listePost = new ArrayList<>();
+        listePost.add(new BasicNameValuePair("typeLigne",type));
+        nomLigne = selectLigneTypeBD.selectAscenseurStation(listePost); // A MODIFIER ABSOLUMENT!!!!!!
+
+        listeBoutonLigne.add(new Button(activite));
+        linearLayout.addView(listeBoutonLigne.get(0));
+        listeBoutonLigne.get(0).setText(nomLigne[0]);
+        initialiserListenerLigne(0);
+
+        for (int i=1; i<nomLigne.length;i++){
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            params.addRule(RelativeLayout.END_OF,listeBoutonLigne.get(i-1).getId());
+            listeBoutonLigne.add(new Button(activite));
+            listeBoutonLigne.get(i).setText(nomLigne[i]);
+            listeBoutonLigne.get(i).setLayoutParams(params);
+            linearLayout.addView(listeBoutonLigne.get(i));
+            initialiserListenerLigne(i);
+        }
     }
 }

@@ -19,7 +19,6 @@
     <string name="ajouterUnLieu">Ajouter un lieu</string>
     <string name="google_maps_key">AIzaSyAH7Qh_aj1BXv_nhucdqW-Tp-NbxjNfDCg</string>
     <string name="title_activity_lieu">Lieu</string>
-
     //Ajout Lieu//
     <string name="ajouterLieuLieu">Lieu</string>
     <string name="ajouterLieuAdresse">Adresse</string>
@@ -27,21 +26,27 @@
     <string name="ajouterLieuVille">Ville</string>
     <string name="ajouterLieuCommentaire">Commentaire</string>
     <string name="ajouterLieuValider">Valider</string>
-
     //Ajout Panne
     <string name="ajouterPanneAscenseur">Ascenceur</string>
     <string name="ajouterPanneEscalator">Escalator</string>
     <string name="ajouterPanneDetails">Détails</string>
     <string name="ajouterPanneSignalerPanne">Signaler Panne</string>
     <string name="ajouterPanneRechercherStation">Rechercher une station</string>
-
     //Lieu
-    <string name="lieuNomLieu">Nom Lieu</string> //pas forcément utile proviendra de la base de données
+    <string name="lieuNomLieu">Nom Lieu</string>
+ //pas forcément utile proviendra de la base de données
     <string name="lieuAdresse">Adresse</string>
     <string name="lieuCPetVille">CPetVille</string>
     <string name="lieuAccessibilité">Accessiblité</string>
     <string name="lieuAvis">Avis</string>
     <string name="lieuLaisserAvis">Laisser un avis</string>
+    <string name="title_activity_panne_details">panne_details</string>
 
+    //detail panne
+    <string name="detailPanne1">Panne sur</string>
+    <string name="detailPanne2">Date incident:</string>
+    <string name="detailPanne3">Dernière mise à jour:</string>
+    <string name="detailPanne4">Problème réglé!</string>
+    <string name="detailPanne5">Problème non réglé...</string>
 
 </resources>

@@ -39,4 +39,11 @@
     <string name="lieuAvis">Opinion</string>
     <string name="lieuLaisserAvis">Leave an opinion</string>
 
+    //detail panne
+    <string name="detailPanne1">Breakdown on</string>
+    <string name="detailPanne2">Date of breakdown:</string>
+    <string name="detailPanne3">Last update:</string>
+    <string name="detailPanne4">Breakdown solved!</string>
+    <string name="detailPanne5">Breakdown non solved...</string>
+
 </resources>

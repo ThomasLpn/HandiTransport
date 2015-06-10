@@ -3,17 +3,28 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import controlleur.ManagerPanne;
+import service.SelectAllTypeTransportBD;
 
 
 public class Pannes extends ActionBarActivity {
-
+    private ManagerPanne manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selectionner_ligne);
-
-
+        manager= new ManagerPanne(this);
+        manager.initialiserBoutonRecherche();
 
     }
 

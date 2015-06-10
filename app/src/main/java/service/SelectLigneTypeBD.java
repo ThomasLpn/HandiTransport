@@ -9,13 +9,12 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 /**
- * Created by user on 25/05/2015.
+ * Created by user on 31/05/2015.
  */
-public class SelectAscenseurStationBD {
-
+public class SelectLigneTypeBD {
     public String[] selectAscenseurStation(List<NameValuePair> paramPost){
         String[] res=null;
-        HttpResponse resRequete = Bd.demandeService("selectascenseurstation.php",paramPost);
+        HttpResponse resRequete = Bd.demandeService("selectlignetype.php",paramPost);
 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(resRequete.getEntity().getContent()));
@@ -28,6 +27,5 @@ public class SelectAscenseurStationBD {
         }
         return res;
     }
-
 
 }

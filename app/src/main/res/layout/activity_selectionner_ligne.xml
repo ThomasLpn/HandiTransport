@@ -14,50 +14,49 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/linearLayout"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="68dp"
-        android:id="@+id/linearLayout">
+        android:layout_alignParentStart="true">
 
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/typeTransport"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal" >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/typeTransport2"></LinearLayout>
+        </HorizontalScrollView>
+
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/linearLayout2"
         android:layout_below="@+id/linearLayout"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="95dp"
-        android:id="@+id/linearLayout2">
+        android:layout_alignParentStart="true">
 
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/numeroLigne"
-            android:layout_gravity="right" />
-    </LinearLayout>
+            android:layout_gravity="right" >
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="125dp">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/listePannes"
-            android:layout_gravity="center_horizontal" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/numeroLigne2"></LinearLayout>
+        </HorizontalScrollView>
     </LinearLayout>
 
     <TextView
@@ -69,5 +68,13 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/listPannes"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2" />
 
 </RelativeLayout>

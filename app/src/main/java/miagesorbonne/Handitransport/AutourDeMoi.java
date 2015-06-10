@@ -16,13 +16,13 @@ public class AutourDeMoi extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autour_de_moi);
-        setUpMapIfNeeded();
+       // setUpMapIfNeeded();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        setUpMapIfNeeded();
+        //setUpMapIfNeeded();
     }
 
     /**

@@ -1,8 +1,8 @@
 package miagesorbonne.Handitransport;
 
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -16,6 +16,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //Pour le multithreading
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -37,7 +38,6 @@ public class MainActivity extends ActionBarActivity {
         //Passage de l'activité main à l'activité selectionnerLigne
         final Button select4 = (Button) findViewById(R.id.pannes);
         select4.setOnClickListener(new Listenner(MainActivity.this,Pannes.class,this));
-
     }
 
 

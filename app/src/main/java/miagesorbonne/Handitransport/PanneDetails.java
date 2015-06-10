@@ -1,31 +1,38 @@
 package miagesorbonne.Handitransport;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import controlleur.ManagerAjoutLieu;
+import controlleur.ManagerPanneDetails;
 
 
-public class AjoutLieu extends ActionBarActivity {
+public class PanneDetails extends ActionBarActivity {
 
-    ManagerAjoutLieu managerAjoutLieu;
+    ManagerPanneDetails managerPanneDetails;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajout_lieu);
-        managerAjoutLieu = new ManagerAjoutLieu(this);
-        managerAjoutLieu.intitialiserCategorie();
-        managerAjoutLieu.listennerCreationLieu();
+        setContentView(R.layout.activity_panne_details);
+        Intent intent = getIntent();
+        String nomStation = intent.getStringExtra("Station");
+        String materielEnPanne = intent.getStringExtra("Panne");
+        setTitle(nomStation);
+        managerPanneDetails = new ManagerPanneDetails(this);
+        managerPanneDetails.intialiserActivite(nomStation,materielEnPanne);
+        managerPanneDetails.toujoursEnPanne();
+        managerPanneDetails.panneReglee();
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_ajout_lieu, menu);
+        getMenuInflater().inflate(R.menu.menu_panne_details, menu);
         return true;
     }
 

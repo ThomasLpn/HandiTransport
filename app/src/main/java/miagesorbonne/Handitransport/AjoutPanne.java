@@ -4,25 +4,19 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.SearchView;
-import android.widget.Spinner;
-import android.widget.Toast;
 
-import controlleur.ManagerPanne;
+import controlleur.ManagerAjoutPanne;
 
 
 public class AjoutPanne extends ActionBarActivity {
 
-    private ManagerPanne manager;
+    private ManagerAjoutPanne manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        manager = new ManagerPanne(this);
+        manager = new ManagerAjoutPanne(this);
         setContentView(R.layout.activity_ajout_panne);
         Button validation = (Button) findViewById(R.id.ajoutPanneBoutonValider);
         manager.validationPanne(validation);
