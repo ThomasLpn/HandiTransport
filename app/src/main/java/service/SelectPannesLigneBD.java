@@ -9,10 +9,16 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 /**
+ * Classe qui va appeler un webservice pour sélectionner toutes pannes sur une ligne
  * Created by user on 02/06/2015.
  */
 public class SelectPannesLigneBD {
 
+    /**
+     * Méthode qui va appeler un webservice pour séléctionner toutes les pannes selon une ligne
+     * @param paramPost on passe en paramètre la ligne pour lequel on souhaite avoir les pannes
+     * @return si le webservice à fonctionner on retourne la liste des pannes, sinon faux
+     */
     public String[] selectPannesLigne(List<NameValuePair> paramPost){
         String[] res=null;
         HttpResponse resRequete = Bd.demandeService("selectpannesligne.php",paramPost);
@@ -20,7 +26,7 @@ public class SelectPannesLigneBD {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(resRequete.getEntity().getContent()));
             String tmp = reader.readLine();
-            tmp = tmp.substring(4,tmp.length()-2);
+            tmp = tmp.substring(5,tmp.length()-2);
             tmp = tmp.replace("\"","");
             res = tmp.split(":");
         } catch (IOException e) {

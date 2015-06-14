@@ -7,9 +7,12 @@ import android.view.MenuItem;
 
 import controlleur.ManagerAjoutLieu;
 
-
+/**
+ * Classe qui correspond à l'activité Android d'ajout de lieu
+ */
 public class AjoutLieu extends ActionBarActivity {
 
+    //Manager de l'activité(IHM) qui va gérer les intéraction avec l'utilisateur
     ManagerAjoutLieu managerAjoutLieu;
 
     @Override

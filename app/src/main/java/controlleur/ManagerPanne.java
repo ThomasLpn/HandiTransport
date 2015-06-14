@@ -139,7 +139,7 @@ public class ManagerPanne {
         linearLayout.removeAllViewsInLayout();
         List<NameValuePair> listePost = new ArrayList<>();
         listePost.add(new BasicNameValuePair("typeLigne",type));
-        nomLigne = selectLigneTypeBD.selectAscenseurStation(listePost); // A MODIFIER ABSOLUMENT!!!!!!
+        nomLigne = selectLigneTypeBD.selectLigneType(listePost); // A MODIFIER ABSOLUMENT!!!!!!
 
         listeBoutonLigne.add(new Button(activite));
         linearLayout.addView(listeBoutonLigne.get(0));

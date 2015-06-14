@@ -27,7 +27,7 @@
     <string name="ajouterLieuCommentaire">Commentaire</string>
     <string name="ajouterLieuValider">Valider</string>
     //Ajout Panne
-    <string name="ajouterPanneAscenseur">Ascenceur</string>
+    <string name="ajouterPanneAscenseur">Ascenseur</string>
     <string name="ajouterPanneEscalator">Escalator</string>
     <string name="ajouterPanneDetails">Détails</string>
     <string name="ajouterPanneSignalerPanne">Signaler Panne</string>

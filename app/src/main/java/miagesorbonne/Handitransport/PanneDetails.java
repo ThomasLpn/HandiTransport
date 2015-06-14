@@ -8,9 +8,12 @@ import android.view.MenuItem;
 
 import controlleur.ManagerPanneDetails;
 
-
+/**
+ * Classe qui va s'occuper de l'activité qui donne des détails sur une panne
+ */
 public class PanneDetails extends ActionBarActivity {
 
+    // Le manager de l'activité qui va s'occuper de l'intéraction entre l'activité et l'utilisateur
     ManagerPanneDetails managerPanneDetails;
 
 

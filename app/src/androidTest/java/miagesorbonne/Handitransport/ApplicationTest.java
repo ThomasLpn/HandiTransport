@@ -1,5 +1,4 @@
 package miagesorbonne.Handitransport;
-
 import android.app.Application;
 import android.test.ApplicationTestCase;
 

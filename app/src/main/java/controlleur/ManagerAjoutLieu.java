@@ -16,7 +16,7 @@ import java.util.List;
 
 import metier.PopUp;
 import miagesorbonne.Handitransport.R;
-import service.AjoutPanneBD;
+import service.AjoutLieuBD;
 
 /**
  * Classe qui permet de gérer les événement sur l'activité AjoutLieu
@@ -24,7 +24,7 @@ import service.AjoutPanneBD;
  */
 public class ManagerAjoutLieu {
     private Activity activite;
-    private AjoutPanneBD ajoutPanneBD;
+    private AjoutLieuBD ajoutLieuBD;
     private PopUp popUp;
 
     /**
@@ -33,7 +33,7 @@ public class ManagerAjoutLieu {
      */
     public ManagerAjoutLieu(Activity activite){
         this.activite=activite;
-        this.ajoutPanneBD = new AjoutPanneBD();
+        this.ajoutLieuBD = new AjoutLieuBD();
         this.popUp = new PopUp();
     }
 
@@ -69,7 +69,7 @@ public class ManagerAjoutLieu {
                 listPost.add(new BasicNameValuePair("commentaireLieu",commentaire.getText().toString()));
 
                 //On appelle la méthode qui va envoyer une requête à la base de données pour ajouter un lieu
-                ajoutPanneBD.ajouterPanne(listPost);
+                ajoutLieuBD.ajouterLieu(listPost);
                 //On créer un popup qui informe l'utilisateur que le lieu à bien été ajouté
                 popUp.creationPopup(activite, "Résultat", "Lieu bien ajouté");
 
@@ -82,7 +82,7 @@ public class ManagerAjoutLieu {
      * Méthode qui va initialiser la liste de catégories des lieux
      */
     public void intitialiserCategorie(){
-        String[] CATEGORIE = {"WC","Bar","Restaurant","Cinéma","Tabac"};
+        String[] CATEGORIE = {"Bar","Restaurant","WC","Cinéma","Tabac"};
         ArrayAdapter<String> categorieLieu = new ArrayAdapter<>(activite,android.R.layout.simple_spinner_item,CATEGORIE);
         categorieLieu.setDropDownViewResource(android.R.layout.simple_spinner_item);
         Spinner spinner = (Spinner) activite.findViewById(R.id.listeCategorie);

@@ -8,9 +8,12 @@ import android.widget.Button;
 
 import controlleur.ManagerAjoutPanne;
 
-
+/**
+ * Classe qui correspond à l'activité Android d'ajout de Panne
+ */
 public class AjoutPanne extends ActionBarActivity {
 
+    //Le manager de l'activité ajout lieu qui va gérer les intéractions avec l'utilisateur
     private ManagerAjoutPanne manager;
 
     @Override

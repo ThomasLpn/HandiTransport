@@ -29,16 +29,25 @@ public class PopUp {
 
     }
 
-    public void créationPopupConfirmation(Activity activite, String titre, String contenu){
+    /**
+     * Méthode qui permet de créer une pop up avec un bouton de confirmation ou d'annulation
+     * Cette popp up est créé sur une Activity
+     * @param activite activité sur lequel sera créé la popup de confirmation
+     * @param titre le titre de la popup nouvellement créé
+     * @param contenu le contenu de la popup
+     */
+    public void creationPopupConfirmation(Activity activite, String titre, String contenu){
 
         new AlertDialog.Builder(activite)
                 .setTitle(titre)
                 .setMessage(contenu)
+                //Le bouton de confirmation qui sera traduit dans le langue de l'utilisateur
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
                     }
                 })
+                //Le bouton d'annulation qui sera traduit dans la langue de l'utilisateur
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

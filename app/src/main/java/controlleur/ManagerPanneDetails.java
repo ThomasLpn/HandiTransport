@@ -65,7 +65,7 @@ public class ManagerPanneDetails {
             @Override
             public void onClick(View v) {
                 PopUp popUp=new PopUp();
-                popUp.créationPopupConfirmation(activite,"Confirmation","Souhaitez vous confirmer l\'incident?");
+                popUp.creationPopupConfirmation(activite,"Confirmation","Souhaitez vous confirmer l\'incident?");
 
                 Intent intent = activite.getIntent();
                 String materielEnPanne = intent.getStringExtra("Panne");
@@ -85,7 +85,7 @@ public class ManagerPanneDetails {
             @Override
             public void onClick(View v) {
                 PopUp popUp=new PopUp();
-                popUp.créationPopupConfirmation(activite,"Confirmation","Souhaitez vous supprimer l\'incident?");
+                popUp.creationPopupConfirmation(activite,"Confirmation","Souhaitez vous supprimer l\'incident?");
 
                 Intent intent = activite.getIntent();
                 String materielEnPanne = intent.getStringExtra("Panne");

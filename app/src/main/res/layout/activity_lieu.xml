@@ -40,8 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Accessibilité"
-        android:id="@+id/accessibilitéLieu"
+        android:text="Accessibilite"
+        android:id="@+id/accessibiliteLieu"
         android:layout_below="@+id/CPVille"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -49,11 +49,11 @@
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:layout_alignTop="@+id/accessibilitéLieu"
-        android:layout_toRightOf="@+id/accessibilitéLieu"
-        android:layout_toEndOf="@+id/accessibilitéLieu"
-        android:numStars="5" />
+        android:id="@+id/ratingBarLieu"
+        android:numStars="5"
+        android:layout_below="@+id/accessibiliteLieu"
+        android:layout_toRightOf="@+id/avisLieu"
+        android:layout_toEndOf="@+id/avisLieu" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Avis"
         android:id="@+id/avisLieu"
-        android:layout_below="@+id/ratingBar"
+        android:layout_below="@+id/ratingBarLieu"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:text="Laisser un avis"
         android:id="@+id/boutonLaisserAvis"
-        android:layout_below="@+id/ratingBar"
+        android:layout_below="@+id/ratingBarLieu"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

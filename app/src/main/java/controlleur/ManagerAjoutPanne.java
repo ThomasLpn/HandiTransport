@@ -74,6 +74,7 @@ public class ManagerAjoutPanne {
     public void initialisationEscaAs(String station){
         List<NameValuePair> listPost = new ArrayList<>(1);
         RadioGroup radioGroup = (RadioGroup) activite.findViewById(R.id.choixTypePanne);
+
         listPost.add(new BasicNameValuePair("nomLigne",station));
 
         String[] ESCASC;
@@ -136,7 +137,6 @@ public class ManagerAjoutPanne {
                 listPost.add(new BasicNameValuePair("escalator",es));
                 TextView detail = (TextView)activite.findViewById(R.id.detailsPannes);
                 listPost.add(new BasicNameValuePair("detail",detail.getText().toString()));
-
                 detail.setText("");
 
                 if (serviceAjoutPanne.ajouterPanne(listPost)){
